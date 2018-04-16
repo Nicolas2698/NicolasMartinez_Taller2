@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="condicional">
+        {{#if condicion}}
+            <h1>{{nombre}} {{apellido}}</h1>
+        {{else}}
+            <h1>Está en False, sorry</h1>
+        {{/if}}
+    </div>
+    <div class="transporte">
+        <ol>
+            {{#each transporte}}
+                <li><h3>Tipo: {{nombre}}</h3><p> - Llantas: {{llantas}}</p> <span class="ribbon">{{cilindraje}}</span></li>
+            {{/each}}
+        </ol>
+    </div>
+</body>
+</html>
