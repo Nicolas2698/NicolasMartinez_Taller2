@@ -77,18 +77,22 @@ header {
         //width: 100%;
         &__imagen {
             width: 100%;
-            height: 50vh;
-            //padding-top: 56.667%;
+            height: 0;
+            padding-top: 56.667%;
             /* (img-height / img-width * container-width) -- (680/1200*100)*/
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            background-image: url("../imgs/slide-2-image.jpg");
+            background-image: url("imgs/banner.png");
             transition: .5s;
 
             img {
                 width: 100%;
             }
+        }
+
+        &__imagen:hover {
+            background-image: url("imgs/banner_hover.png");
         }
     }
 }
@@ -96,7 +100,7 @@ header {
 .spacer {
     margin-top: 30px;
     margin-bottom: 30px;
-    background-image: url("../imgs/separador-negro.png");
+    background-image: url("imgs/separador-negro.png");
     background-color: #000000;
     background-repeat: no-repeat;
     background-position: center;
@@ -152,12 +156,25 @@ header {
         margin-right: 120px;
     }
 }
+
+.advertising {
+    background-color: black;
+    width: 100vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    color: white;
+    padding-bottom: 30px;
+
     article {
         display: inline-block;
     }
 
     &__header {
-        background-image: url("../imgs/publicidad.png");
+        background-image: url("imgs/publicidad.png");
         width: 100vw;
         height: 100px;
         background-repeat: no-repeat;
@@ -172,7 +189,7 @@ header {
     }
 
     &__header:hover {
-        background-image: url("../imgs/publicidad-negro.png");
+        background-image: url("imgs/publicidad-negro.png");
     }
 
     &__albumimg {
@@ -194,8 +211,14 @@ header {
     h2 {
         font-size: 14pt;
     }
+}
 
-.mercha {
+.advertising:hover {
+    background-color: gainsboro;
+    color: black;
+}
+
+.gallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -209,7 +232,7 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         margin-bottom: 20px;
-        background-image: url("../imgs/publicidad-negro.png");
+        background-image: url("imgs/publicidad-negro.png");
     }
 
     &__title {
@@ -221,7 +244,7 @@ header {
         margin-bottom: 40px;
     }
 
-    &__product {
+    &__song {
         order: 0;
         flex: 0 1 auto;
         align-self: auto;
@@ -237,7 +260,60 @@ header {
         width: 100%;
     }
 
+  
+
+  
+
 }
+
+.survey {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &__header {
+        width: 100vw;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &__album {
+        background-color: black;
+        background-image: url("imgs/survey1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        color: white;
+        height: 520px;
+        width: 50%;
+        text-align: center;
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        padding-bottom: 20px;
+        border-radius: 5px;
+        //margin: 0px 50px;
+    }
+
+    &__album1 {
+        background-color: black;
+        background-image: url("imgs/survey2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        color: white;
+        height: 520px;
+        width: 50%;
+        text-align: center;
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        padding-bottom: 20px;
+        border-radius: 5px;
+        //margin: 0px 50px;
+    }
 
     button {
         border: none;
@@ -254,7 +330,7 @@ header {
     img {
         margin-bottom: 10px;
     }
-
+}
 
 .footer {
     background-color: black;
@@ -273,7 +349,7 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         margin-bottom: 20px;
-        background-image: url("../imgs/publicidad.png");
+        background-image: url("imgs/publicidad.png");
     }
 
     &__invitation {
@@ -302,7 +378,7 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         margin-bottom: 20px;
-        background-image: url("../imgs/redes.png");
+        background-image: url("imgs/redes.png");
         
     }
 
@@ -315,4 +391,8 @@ header {
         flex: 0 1 auto;
         align-self: auto;
     }
+}
+
+@media screen and (max-width: 1980px) and (min-width: 1080px){
+    
 }

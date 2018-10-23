@@ -25,24 +25,11 @@ app.use(express.static("public"));                        //
 
 
 app.get("/", function(req, res){
-    res.render("index", {
-        titulo: "Titulo",
-        nombre: "Santiago",
-        apellido: "Mondragón",
-        transporte:[
-            {
-                nombre: "Carro",
-                llantas: 4,
-                cilindraje: 1500,    
-            },
-            {
-                nombre: "Moto",
-                llantas: 2,
-                cilindraje: 250,    
-            }
-        ],
-        condicion: true,
-    });
+    res.render("index");
+});
+
+app.get("/tienda", function(req, res){
+    res.render("tienda");
 });
 
 app.listen(5000, function(){
