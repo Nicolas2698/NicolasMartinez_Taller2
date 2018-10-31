@@ -43,7 +43,6 @@ MongoClient.connect('mongodb://localhost:27017', function (err, client) {
     app.listen(3000);
 });
 
-
 app.get("/", function(req, res){
     res.render("index");
 });
