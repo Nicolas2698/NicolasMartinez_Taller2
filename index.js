@@ -1,37 +1,69 @@
-const express = require("express"); 
 
-//--PARA USAR HANDLEBARS SE DEBE ESCRIBIR ESTO--//
-//----------------------------------------------//
-const consolidate = require("consolidate");     //
-const hbs = require("handlebars");              //
-//----------------------------------------------//
 
-var app = express();
+/*app.get('/agregarDocumento', function(req, res){
+    const collection = db.collection('albums');
 
-//--SE DEBE USAR CONSOLIDATE PARA QUE SE PUEDA USAR HBS-//
-//-SE SETEAN LAS VISTAS CON HBS Y Y LOS VIEWS TEMPLATES-//
-//---NO OLVIDAR PONER EL "." EN LA RUTA DE LA CARPETA---//
-//------------------------------------------------------//
-app.engine("hbs", consolidate.handlebars);              //
-app.set("view engine", "hbs");                          //
-app.set("views", "./views");                            //
-//------------------------------------------------------//
+    collection.insert({
+       //datos del documento 
+    }), function(err, res){
+        if(err){
+            console.error(err);
+            response.send(err);
+            return;
+        }
 
-//--SE DEFINE EL CSS COMO UN ARCHIVO STATICO PARA LEERLOS-//
-//--SE CREA UNA RUTA VIRTUAL PARA LOS ARCHIVOS ESTATICOS--//
-//EN PUBLIC ESTA EL CSS, EL JS Y DEMAS CARPERAS DE SOURCES//
-app.use(express.static("public"));                        //
-//--------------------------------------------------------//
+        response.send("yey se agrego!");
+    };
+});*/
+
+
+
+const express = require('express'), 
+    engines = require('consolidate'),
+    MongoClient = require('mongodb').MongoClient;
+    //ObjectID = require('mongodb').ObjectID;
+    
+var app = express(),
+    db;
+
+    const dbName = 'tienda';
+
+
+app.engine('hbs', engines.handlebars);
+app.set ('views', './views');
+app.set('view engine', 'hbs');
+
+app.use(express.static('public'));
+
+MongoClient.connect('mongodb://localhost:27017', function (err, client) {
+    if (err) throw err;
+
+    db = client.db(dbName);
+
+    app.listen(3000);
+});
 
 
 app.get("/", function(req, res){
     res.render("index");
 });
 
-app.get("/tienda", function(req, res){
-    res.render("tienda");
-});
+app.get('/tienda', function(req, res){
+    const collection = db.collection('productos');
 
-app.listen(5000, function(){
-    console.log("Server Iniciado en Puerto 5000");
-})
+    collection.find().toArray(function(err, docs){
+      if(err){
+        console.error(err);
+        res.send(err);
+        return;
+      }
+  
+
+      var contexto = {
+        products: docs,
+      };
+
+      console.log(docs)
+      res.render('tienda', contexto);
+    });
+  });
