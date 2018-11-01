@@ -35,61 +35,24 @@
     </header>
     <section class="spacer"></section>
 
-    <section class="list">
+    <section class="albums">
 
-        <article class="list__title">
-            <h1>Albums:</h1>
-        </article>
-
-        <article class="list__img">
-            <img class="imagen" src="imgs/album.png">
-        </article>
-        <article class="list__music">
-            <ul>
-                <li>1. (Fuck A) Silver Lining</li>
-                <li>2. Say Amen (Saturday Night)</li>
-                <li>3. Hey Look Ma, I Made It</li>
-                <li>4. High Hopes</li>
-                <li>5. Roaring 20s</li>
-                <li>6. Dancing's Not a Crime</li>
-                <li>7. One of the Drunks</li>
-                <li>8. The Overpass</li>
-                <li>9. King of the Clouds</li>
-                <li>10. Old Fashioned</li>
-                <li>11. Dying in LA</li>
-            </ul>
-        </article>
-        <article class="list__time">
-            <ul>
-                <li>2:48</li>
-                <li>3:09</li>
-                <li>2:49</li>
-                <li>3:10</li>
-                <li>3:06</li>
-                <li>3:39</li>
-                <li>3:18</li>
-                <li>2:57</li>
-                <li>2:40</li>
-                <li>2:46</li>
-                <li>3:49</li>
-            </ul>
+        <article class="albums__title">
+            <h1>Albums</h1>
         </article>
 
-        <article class="list__genre">
-            <ul>
-                <li>Pop</li>
-                <li>Pop</li>
-                <li>Pop</li>
-                <li>Alternative/independent</li>
-                <li>Pop</li>
-                <li>Pop</li>
-                <li>Pop</li>
-                <li>Pop</li>
-                <li>Alternative/independent</li>
-                <li>Pop</li>
-                <li>Pop</li>
-            </ul>
-        </article>
+        {{#each albums}} 
+        <a href="/{{title}}">
+            <article class="albums__product">
+                <img class="albums__product--image" src={{image}}>
+                <h2 class="albums__product--title">{{title}}</h2>
+                <h3>{{songs}}</h3>
+                <h3>{{year}}</h3>
+                <h3>{{genre}}</h3>
+                <h3>{{price}}</h3>
+            </article>
+        </a>
+    {{/each}}
     </section>
     
 <section class="mercha">
@@ -100,8 +63,9 @@
 
     {{#each products}} 
         <article class="mercha__product">
-            <img class="mercha__product--image" src={{img}} alt="High Hopes">
-            <h3>{{name}}</h3>
+            <!--<div class="mercha__product__image" style="background-image: url({{img}})"></div>-->
+            <img class="mercha__product__image" src={{img}}>
+            <h2 class="mercha__product__title">{{name}}</h2>
             <h3>{{price}}</h3>
 
         </article>

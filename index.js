@@ -23,11 +23,9 @@ const express = require('express'),
     MongoClient = require('mongodb').MongoClient;
     //ObjectID = require('mongodb').ObjectID;
     
-var app = express(),
-    db;
+var app = express(),db;
 
     const dbName = 'tienda';
-
 
 app.engine('hbs', engines.handlebars);
 app.set ('views', './views');
@@ -49,6 +47,16 @@ app.get("/", function(req, res){
 
 app.get('/tienda', function(req, res){
     const collection = db.collection('productos');
+    const collectionTwo = db.collection('albums');
+    let dokss;
+    collectionTwo.find().toArray(function(err, doks){
+        if(err){
+          console.error(err);
+          res.send(err);
+          return;
+        }
+        dokss = doks;
+      });
 
     collection.find().toArray(function(err, docs){
       if(err){
@@ -60,9 +68,12 @@ app.get('/tienda', function(req, res){
 
       var contexto = {
         products: docs,
+        albums: dokss
       };
 
       console.log(docs)
       res.render('tienda', contexto);
     });
+
+    
   });
