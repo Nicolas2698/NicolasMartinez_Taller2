@@ -71,14 +71,14 @@ app.get('/tienda', function (req, res) {
             albums: dokss
         };
 
-        console.log(docs)
+        //console.log(docs)
         res.render('tienda', contexto);
     });
 
 
 });
 
-app.get("/tienda/producto", function (req, res) {
+app.get("/tienda/album", function (req, res) {
     var nombreProducto = req.query.title;
     console.log(nombreProducto);
     const collectionTwo = db.collection('albums');
@@ -88,18 +88,17 @@ app.get("/tienda/producto", function (req, res) {
         });
         res.render('albums', cualquiera);
     });
+});
 
-    //console.log(req.query.title);
-
-    /* collectionTwo.filter({
-         title: req.query.title
-     });
-
-     collectionTwo.toArray((err,result) => {
-         //console.log('hi server')
-         res.render('albums', {
-             producto: result[0],
-         });
-     });
-     */
+app.get("/tienda/producto", function (req, res) {
+    var nombreProducto = req.query.name;
+    console.log("///////////");
+    console.log(nombreProducto);
+    const collection = db.collection('productos');
+    collection.find({}).toArray(function(err, docs){
+        var cualquiera = docs.find(function(obj){
+           return obj.name == nombreProducto; 
+        });
+        res.render('merchan', cualquiera);
+    });
 });

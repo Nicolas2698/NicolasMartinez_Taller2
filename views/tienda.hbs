@@ -45,13 +45,13 @@
         </article>
 
         {{#each albums}} 
-        <a href="/tienda/producto?title={{title}}">
+        <a href="/tienda/album?title={{title}}">
             <article class="albums__product">
                 <img class="albums__product--image" src={{image}}>
                 <h2 class="albums__product--title">{{title}}</h2>
-                <h3>{{songs}}</h3>
+                <h3>Songs: {{songs}}</h3>
                 <h3>{{year}}</h3>
-                <h3>{{genre}}</h3>
+                <h3>Genre: {{genre}}</h3>
                 <h3>{{price}}</h3>
             </article>
         </a>
@@ -65,13 +65,13 @@
         </article>
 
     {{#each products}} 
+    <a href="/tienda/producto?name={{name}}">
         <article class="mercha__product">
-            <!--<div class="mercha__product__image" style="background-image: url({{img}})"></div>-->
             <img class="mercha__product__image" src={{img}}>
             <h2 class="mercha__product__title">{{name}}</h2>
             <h3>{{price}}</h3>
-
         </article>
+        </a>
     {{/each}}
 
     </section>
@@ -93,7 +93,7 @@
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
 
 </body>
 
