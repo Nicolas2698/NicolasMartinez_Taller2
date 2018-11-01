@@ -72,3 +72,21 @@ header {
         }
     }
 }
+
+.producto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    text-align: center;
+
+    img {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        width: 50vw;
+        height: 50vh;
+    }
+}
