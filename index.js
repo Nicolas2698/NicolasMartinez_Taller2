@@ -61,6 +61,10 @@ app.get("/", function (req, res) {
     res.render("index");
 });
 
+app.get("/carro", function(req, res){
+    res.render("carro");
+});
+
 app.get('/tienda', function (req, res) {
     const collection = db.collection('productos');
     const collectionTwo = db.collection('albums');

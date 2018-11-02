@@ -8,18 +8,15 @@ window.addEventListener('load',function(){
     }
 
     console.log();
-
-    //var precio = [];
-   // precio = price.split(',');
-
-    function carritoDeCompras__render(){
+    
+   /* function carritoDeCompras__render(){
         numDeElementos.forEach(function(elem){ 
-           numDeCompras += parseInt(elem.price);
+           //numDeCompras += parseInt(elem.price);
         });
     }
-    console.log(price);
-    carritoDeCompras__render();
 
+    carritoDeCompras__render();
+*/
     document.querySelector('.agregar').addEventListener('click', function(element){
         element.preventDefault();
         var url = '/albums/addtocart?title='+this.getAttribute('data-title');
