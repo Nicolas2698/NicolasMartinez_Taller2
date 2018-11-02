@@ -20,17 +20,32 @@ const express = require('express'),
     engines = require('consolidate'),
     MongoClient = require('mongodb').MongoClient;
 //ObjectID = require('mongodb').ObjectID;
+const hbs = require('express-handlebars');
+
+const assert = require("assert");
+
 
 var app = express(),
     db;
 
 const dbName = 'tienda';
 
+app.use(express.static('public'));
+app.engine('handlebars', hbs());
+app.set('view engine', 'handlebars');
+
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
+
+var bodyParser = require('body-parser');
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+app.use(express.json());
 
 MongoClient.connect('mongodb://localhost:27017', function (err, client) {
     if (err) throw err;

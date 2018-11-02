@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{product.title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/album.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/producto.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
 
 </head>
@@ -30,34 +30,6 @@
         </nav>
     </header>
 
-    <section class="producto">
-        <div class="contenedor">
-            <article class="producto__img">
-                <img src=".{{image}}">
-            </article>
-            <article class="producto__descripcion">
-                <h1>{{title}} - {{price}}</h1>
-                {{#each song}}
-                <li>{{this}}</li>
-                {{/each}}
-                <h3>Songs: {{songs}}</h3>
-                <h3>Year: {{year}}</h3>
-                <h3>Duration: {{duration}}</h3>
-            </article>
-        </div>
-
-        <article>
-            <a class="agregar" data-name="{{title}}">
-            <button class="producto__agregar">
-                <h1>Add to cart </h1>
-            </button>
-            </a>
-
-            <button class="producto__checkout">
-                Go to Checkout
-            </button>
-        </article>
-    </section>
 
     <footer class="footer">
         <article class="footer__header"></article>

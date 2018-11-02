@@ -2,3 +2,5 @@ node_modules
 package-lock.json
 **/*.css
 **/*.map
+datos_album.js
+datos_productos.js

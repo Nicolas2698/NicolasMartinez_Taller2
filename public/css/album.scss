@@ -115,8 +115,16 @@ header {
             flex: 0 1 auto;
             align-self: auto;
         }
+        h3{
+            text-align: left;
+        }
+        li{
+            text-align: left;
+        }
     }
-    button {
+
+
+    &__agregar {
         order: 0;
         flex: 0 1 auto;
         align-self: flex-end;
@@ -130,8 +138,18 @@ header {
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
+
+        margin-bottom: 100px;
+    }
+
+    &__checkout{
+        border: none;
+        background-color: none;
+        text-decoration: underline;
+        display: inline-block;
     }
 }
+
 .footer {
     background-color: black;
     width: 100vw;
