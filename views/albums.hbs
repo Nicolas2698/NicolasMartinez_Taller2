@@ -43,14 +43,19 @@
                 <h3>Songs: {{songs}}</h3>
                 <h3>Year: {{year}}</h3>
                 <h3>Duration: {{duration}}</h3>
+                <h3>Genres:</h3>
+                {{#each genre}}
+
+                <li>{{this}}</li>
+                {{/each}}
             </article>
         </div>
 
         <article>
-            <a class="agregar" data-name="{{title}}">
-            <button class="producto__agregar">
-                <h1>Add to cart </h1>
-            </button>
+            <a class="agregar" data-title="{{title}}">
+                <button class="producto__agregar">
+                    <h1>Add to cart </h1>
+                </button>
             </a>
 
             <button class="producto__checkout">
@@ -72,6 +77,11 @@
             <!--<img src="imgs/redes.png" alt="social network">-->
         </article>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="../js/producto.js"></script>
+
 </body>
 
 </html>

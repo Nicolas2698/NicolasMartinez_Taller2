@@ -1,36 +1,39 @@
 window.addEventListener('load',function(){
 
-    var numDeComrpas=0;
-
-    //var compras= [];
+    var numDeCompras=0;
     
-    var compras = JSON.parse(localStorage.getItem('compras'));
-    if(compras == null){
-        compras = [];
+    var numDeElementos = JSON.parse(localStorage.getItem('numDeElementos'));
+    if(numDeElementos == null){
+        numDeElementos = [];
     }
 
-    function shoppingBag__render(){
-        compras.forEach(function(elem){ 
-            numDeCompras += parseInt(elem.precio);
+    console.log();
+
+    //var precio = [];
+   // precio = price.split(',');
+
+    function carritoDeCompras__render(){
+        numDeElementos.forEach(function(elem){ 
+           numDeCompras += parseInt(elem.price);
         });
     }
-
-    shoppingBag__render()
+    console.log(price);
+    carritoDeCompras__render();
 
     document.querySelector('.agregar').addEventListener('click', function(element){
         element.preventDefault();
-        var url = '/producto/addtocart?name='+this.getAttribute('data-name');
+        var url = '/albums/addtocart?title='+this.getAttribute('data-title');
         fetch(url,{
             method: 'GET',
         })
         .then(res => res.json())
         .catch(err => console.log(err))
         .then(function(res){
-            compras.push(res);
-            localStorage.setItem('compras', JSON.stringify(compras));
-            shoppingBag__render();
+            numDeElementos.push(res);
+            localStorage.setItem('numDeElementos', JSON.stringify(numDeElementos));
+            carritoDeCompras__render();
             console.log('////////////////////////////// ARREGLO COMPRAS ////////////////////////////');
-            console.log(compras);
+            console.log(numDeElementos);
         });
     });
 
